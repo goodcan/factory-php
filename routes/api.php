@@ -18,10 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix' => 'v1'], function () {
-    Route::get('test', 'Test@test');
-});
-
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'company'], function () {
         Route::get('getInfo', 'admin\Company@getInfo');
