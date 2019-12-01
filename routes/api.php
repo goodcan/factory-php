@@ -28,3 +28,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('setInfo', 'admin\Company@setInfo');
     });
 });
+
+Route::group(['prefix' => 'v1'], function () {
+    Route::group(['prefix' => 'company'], function () {
+        Route::get('info', 'main\Company@info');
+    });
+});

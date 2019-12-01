@@ -10,18 +10,18 @@ use Illuminate\Support\Facades\DB;
 
 class ORMCompany
 {
-    static function get()
+    static function get($lang = null)
     {
         $company = DB::table('company')->first();
         $info = [
             'phone' => $company->phone,
             'fax' => $company->fax,
             'mobilePhone' => $company->mobilePhone,
-            'concatUser' => L18n::decodeDBField($company->concatUser),
+            'concatUser' => L18n::decodeDBField($company->concatUser, $lang),
             'email' => $company->email,
-            'address' => L18n::decodeDBField($company->address),
+            'address' => L18n::decodeDBField($company->address, $lang),
             'logo' => $company->logo,
-            'briefIntroduction' => L18n::decodeDBField($company->briefIntroduction),
+            'briefIntroduction' => L18n::decodeDBField($company->briefIntroduction, $lang),
         ];
         if ($company->latLng === null) {
             $info['latLng'] = [

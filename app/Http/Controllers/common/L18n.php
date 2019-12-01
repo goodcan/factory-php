@@ -6,15 +6,21 @@ namespace App\Http\Controllers\common;
 
 class L18n
 {
-    static function decodeDBField($data)
+    static function decodeDBField($data, $lang = null)
     {
         if ($data === null) {
-            return [
+            $field = [
                 'cn' => '',
                 'en' => ''
             ];
         } else {
-            return Json::decodeDBField($data);
+            $field = Json::decodeDBField($data);
+        }
+
+        if ($lang === null) {
+            return $field;
+        } else {
+            return $field[$lang];
         }
     }
 }
