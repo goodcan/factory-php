@@ -6,6 +6,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\orm\ORMCompany;
+use App\Http\Controllers\orm\ORMCompanyHistory;
 
 class Company extends Controller
 {
@@ -17,6 +18,17 @@ class Company extends Controller
     public function setInfo()
     {
         ORMCompany::update(request()->all());
+        return $this->respSuccess();
+    }
+
+    public function getHistoryList()
+    {
+        return $this->respSuccess(ORMCompanyHistory::get());
+    }
+
+    public function setHistory()
+    {
+        ORMCompanyHistory::upsert(request()->all());
         return $this->respSuccess();
     }
 }
