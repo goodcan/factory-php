@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Http\Controllers\orm;
+namespace App\Http\Controllers\Conf;
 
 
 class DBTable

@@ -1,14 +1,15 @@
 <?php
 
 
-namespace App\Http\Controllers\orm;
+namespace App\Http\Controllers\Dao;
 
 
-use App\Http\Controllers\common\L18n;
-use App\Http\Controllers\common\Json;
+use App\Http\Controllers\Conf\DBTable;
+use App\Http\Controllers\Common\L18n;
+use App\Http\Controllers\Common\Json;
 use Illuminate\Support\Facades\DB;
 
-class ORMCompanyHistory
+class DAOCompanyHistory
 {
     static function get($lang = null)
     {

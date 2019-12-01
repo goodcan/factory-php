@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Http\Controllers\common;
+namespace App\Http\Controllers\Common;
 
 
 class Json
