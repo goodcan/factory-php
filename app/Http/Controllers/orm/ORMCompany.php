@@ -12,7 +12,7 @@ class ORMCompany
 {
     static function get($lang = null)
     {
-        $company = DB::table('company')->first();
+        $company = DB::table(DBTable::$Company)->first();
         $info = [
             'phone' => $company->phone,
             'fax' => $company->fax,
@@ -48,7 +48,7 @@ class ORMCompany
         if (array_key_exists('latLng', $data)) {
             $data['latLng'] = Json::encodeDBField($data['latLng']);
         }
-        DB::table('company')
+        DB::table(DBTable::$Company)
             ->where('id', 1)
             ->update($data);
     }
