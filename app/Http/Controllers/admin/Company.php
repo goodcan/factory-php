@@ -7,6 +7,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\orm\ORMCompany;
 use App\Http\Controllers\orm\ORMCompanyHistory;
+use App\Http\Controllers\orm\ORMCompanyNews;
 
 class Company extends Controller
 {
@@ -30,5 +31,9 @@ class Company extends Controller
     {
         ORMCompanyHistory::upsert(request()->all());
         return $this->respSuccess();
+    }
+
+    public function getNewsList() {
+        return $this->respSuccess(ORMCompanyNews::get());
     }
 }

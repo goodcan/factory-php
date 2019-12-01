@@ -27,6 +27,10 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('list', 'admin\Company@getHistoryList');
             Route::post('set', 'admin\Company@setHistory');
         });
+
+        Route::group(['prefix' => 'news'], function () {
+            Route::get('list', 'admin\Company@getNewsList');
+        });
     });
 });
 
