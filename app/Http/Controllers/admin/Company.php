@@ -16,8 +16,7 @@ class Company extends Controller
 
     public function setInfo()
     {
-        $input = request()->all();
-        ORMCompany::update($input);
+        ORMCompany::update(request()->all());
         return $this->respSuccess();
     }
 }

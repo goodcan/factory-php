@@ -8,7 +8,7 @@ class Json
 {
     static function decodeDBField($data)
     {
-        return json_decode($data);
+        return json_decode($data, true);
     }
 
     static function encodeDBField($data)
