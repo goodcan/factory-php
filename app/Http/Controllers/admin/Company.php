@@ -11,6 +11,13 @@ class Company extends Controller
 {
     public function getInfo()
     {
-        return $this->respSuccess(ORMCompany::CompanyInfo());
+        return $this->respSuccess(ORMCompany::get());
+    }
+
+    public function setInfo()
+    {
+        $input = request()->all();
+        ORMCompany::update($input);
+        return $this->respSuccess();
     }
 }

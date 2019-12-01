@@ -11,7 +11,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function respSuccess($data)
+    public function respSuccess($data = null)
     {
         return $this->response($data);
     }

@@ -6,7 +6,7 @@ namespace App\Http\Controllers\common;
 
 class L18n
 {
-    static function fmtDBField($data)
+    static function decodeDBField($data)
     {
         if ($data === null) {
             return [

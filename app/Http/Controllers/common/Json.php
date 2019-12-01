@@ -10,4 +10,9 @@ class Json
     {
         return json_decode($data);
     }
+
+    static function encodeDBField($data)
+    {
+        return json_encode($data);
+    }
 }
