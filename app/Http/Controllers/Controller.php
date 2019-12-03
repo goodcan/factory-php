@@ -16,7 +16,7 @@ class Controller extends BaseController
         return $this->response($data);
     }
 
-    public function respFailure($msg, $code = 0)
+    public function respFailure($msg = 'error', $code = 0)
     {
         return $this->response(null, $code, $msg);
     }

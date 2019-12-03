@@ -48,8 +48,9 @@ class DAOCompany
         if (array_key_exists('latLng', $data)) {
             $data['latLng'] = Json::encodeDBField($data['latLng']);
         }
+        $data['id'] = 1;
         DB::table(DBTable::$Company)
-            ->updateOrInsert(['id' => 1], $data);
+            ->updateOrInsert(['id' => $data['id']], $data);
     }
 
 

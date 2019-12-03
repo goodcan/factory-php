@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Conf\BaseConf;
 use App\Dao\DAOCompany;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 
 class Company extends Controller
@@ -26,7 +30,18 @@ class Company extends Controller
 
     public function setHistory()
     {
-        DAOCompany::upsertHistory(request()->all());
+        $input = request()->all();
+
+        $validator = Validator::make($input, [
+            'timestamp' => 'required',
+            'content' => 'required',
+        ], BaseConf::$ValidatorMessages);
+
+        if ($validator->fails()) {
+            return $this->respFailure($validator->errors());
+        }
+
+        DAOCompany::upsertHistory($input);
         return $this->respSuccess();
     }
 
