@@ -74,6 +74,10 @@ class Company extends Controller
             return $this->respFailure($validator->errors());
         }
 
+        if (!DAOCompany::checkHistoryExists($input['timestamp'])) {
+            return $this->respFailure('history is not exists');
+        }
+
         DAOCompany::delHistory($input['timestamp']);
         return $this->respSuccess();
     }

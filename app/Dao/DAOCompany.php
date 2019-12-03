@@ -71,6 +71,13 @@ class DAOCompany
         return $data;
     }
 
+    static function checkHistoryExists($id)
+    {
+        return DB::table(DBTable::$CompanyHistory)
+            ->where('timestamp', $id)
+            ->exists();
+    }
+
     static function upsertHistory($data)
     {
         $data['content'] = Json::encodeDBField($data['content']);
