@@ -19,4 +19,14 @@ class DAOCompanyNews
         }
         return $data;
     }
+
+    public function insert($data)
+    {
+
+    }
+
+    public function update($data)
+    {
+
+    }
 }

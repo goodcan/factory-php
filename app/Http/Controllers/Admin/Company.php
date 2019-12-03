@@ -33,7 +33,13 @@ class Company extends Controller
         return $this->respSuccess();
     }
 
-    public function getNewsList() {
+    public function getNewsList()
+    {
         return $this->respSuccess(DAOCompanyNews::get());
+    }
+
+    public function setNews()
+    {
+        return $this->respSuccess();
     }
 }
