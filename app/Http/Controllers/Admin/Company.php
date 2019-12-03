@@ -62,6 +62,22 @@ class Company extends Controller
         return $this->respSuccess();
     }
 
+    public function delHistory()
+    {
+        $input = request()->all();
+
+        $validator = Validator::make($input, [
+            'timestamp' => 'required',
+        ], BaseConf::$ValidatorMessages);
+
+        if ($validator->fails()) {
+            return $this->respFailure($validator->errors());
+        }
+
+        DAOCompany::delHistory($input['timestamp']);
+        return $this->respSuccess();
+    }
+
     public function getNewsList()
     {
         return $this->respSuccess(DAOCompany::getNews());
