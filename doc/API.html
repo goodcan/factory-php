@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>API</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">API</h1>
+
+<blockquote>
+<p>测试地址 106.12.19.27:9999</p>
+</blockquote>
+
+<h2 id="toc_1">目录</h2>
+
+<ul>
+<li><a href="#basic-data">通信数据基础结构</a></li>
+<li><a href="#status-code">状态码</a></li>
+<li><a href="#company">公司相关接口</a>
+
+<ul>
+<li><a href="#company-get-admin-info">获取公司编辑信息</a></li>
+<li><a href="#company-set-info">设置公司信息</a></li>
+<li><a href="#company-get-info">获取公司展示信息</a></li>
+<li><a href="#company-history-get-admin-list">获取公司历史编辑信息</a></li>
+<li><a href="#company-history-set">设置公司历史信息</a></li>
+<li><a href="#company-history-del">删除公司历史信息</a></li>
+<li><a href="#company-history-get">获取公司历史展示信息</a></li>
+<li><a href="#company-news-get-admin-list">获取公司新闻编辑信息</a></li>
+<li><a href="#company-news-set">设置公司新闻信息</a></li>
+<li><a href="#company-news-del">删除公司新闻信息</a></li>
+<li><a href="#company-news-get-list">获取公司新闻展示信息</a></li>
+</ul></li>
+<li><a href="#feedback">用户反馈相关接口</a>
+
+<ul>
+<li><a href="#feedback-submit">提交反馈</a></li>
+<li><a href="#feedback-admin-list">后台反馈列表</a></li>
+</ul></li>
+<li><a href="#product">产品相关接口</a>
+
+<ul>
+<li><a href="#product-category-list">产品分类列表</a></li>
+</ul></li>
+<li><a href="#nav">导航栏相关接口</a>
+
+<ul>
+<li><a href="#nav-menus">菜单栏</a></li>
+</ul></li>
+<li><a href="#image">图片相关接口</a>
+
+<ul>
+<li><a href="#image-upload">上传图片</a></li>
+</ul></li>
+</ul>
+
+<div id="basic-data"></div>
+
+<h2 id="toc_2">通信数据基础结构</h2>
+
+<h3 id="toc_3">Request</h3>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>方式</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>language</td>
+<td>header</td>
+<td>语言，不传则服务器默认 &quot;cn&quot;</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_4">Response</h3>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>code</td>
+<td>int</td>
+<td>1 成功，0 失败</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>错误信息等</td>
+</tr>
+<tr>
+<td>data</td>
+<td>json</td>
+<td>对应的数据内容</td>
+</tr>
+</tbody>
+</table>
+
+<div id="i18n"></div>
+
+<h3 id="toc_5">多语言字段结构 （i18n）</h3>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>cn</td>
+<td>string</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>en</td>
+<td>string</td>
+<td>英文</td>
+</tr>
+</tbody>
+</table>
+
+<div id="status-code"></div>
+
+<h2 id="toc_6">状态码</h2>
+
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td>失败</td>
+</tr>
+<tr>
+<td>1</td>
+<td>成功</td>
+</tr>
+</tbody>
+</table>
+
+<div id="company"></div>
+
+<h2 id="toc_7">公司相关接口</h2>
+
+<div id="company-get-admin-info"></div>
+
+<h3 id="toc_8">获取公司编辑信息</h3>
+
+<h4 id="toc_9">接口标识</h4>
+
+<p>请求方式：HTTP GET<br>
+接口名称：/admin/company/getInfo<br>
+参数类型：无</p>
+
+<h4 id="toc_10">返回参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>电话</td>
+</tr>
+<tr>
+<td>fax</td>
+<td>string</td>
+<td>传真</td>
+</tr>
+<tr>
+<td>mobilePhone</td>
+<td>string</td>
+<td>手机号</td>
+</tr>
+<tr>
+<td>concatUser</td>
+<td><a href="#i18n">i18n</a></td>
+<td>联系人</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>邮箱</td>
+</tr>
+<tr>
+<td>address</td>
+<td><a href="#i18n">i18n</a></td>
+<td>地址</td>
+</tr>
+<tr>
+<td>logo</td>
+<td>string</td>
+<td>公司 logo</td>
+</tr>
+<tr>
+<td>briefIntroduction</td>
+<td><a href="#i18n">i18n</a></td>
+<td>公司介绍</td>
+</tr>
+<tr>
+<td>latLng</td>
+<td>map</td>
+<td>经纬度</td>
+</tr>
+<tr>
+<td>latLng.lat</td>
+<td>float</td>
+<td>维度</td>
+</tr>
+<tr>
+<td>latLng.lng</td>
+<td>float</td>
+<td>经度</td>
+</tr>
+</tbody>
+</table>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: {
+        &quot;phone&quot;: &quot;12345678901&quot;,
+        &quot;fax&quot;: &quot;12345678901&quot;,
+        &quot;mobilePhone&quot;: &quot;12345678901&quot;,
+        &quot;concatUser&quot;: {
+            &quot;cn&quot;: &quot;灿灿&quot;,
+            &quot;en&quot;: &quot;cancan&quot;
+        },
+        &quot;email&quot;: &quot;1048042379@qq.com&quot;,
+        &quot;address&quot;: {
+            &quot;cn&quot;: &quot;杭州&quot;,
+            &quot;en&quot;: &quot;HangZhou&quot;
+        },
+        &quot;logo&quot;: &quot;xxxx&quot;,
+        &quot;briefIntroduction&quot;: {
+            &quot;cn&quot;: &quot;行货组水电费水电费第三方第三方撒范德萨发顺丰&quot;,
+            &quot;en&quot;: &quot;dfsdfsdfsdfsdfsdferewg wefwedsfsdfwe fefewfdsad fewfwe&quot;
+        },
+        &quot;latLng&quot;: {
+            &quot;lat&quot;: 111.01,
+            &quot;lng&quot;: 222.01
+        }
+    }
+}</code></pre></div>
+
+<div id="company-set-info"></div>
+
+<h3 id="toc_11">设置公司信息</h3>
+
+<h4 id="toc_12">接口标识</h4>
+
+<p>请求方式：HTTP POST<br>
+接口名称：/admin/company/setInfo<br>
+参数类型：application/json</p>
+
+<h4 id="toc_13">请求参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>必传</th>
+<th>示例</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>true</td>
+<td>&quot;110&quot;</td>
+<td>电话</td>
+</tr>
+<tr>
+<td>fax</td>
+<td>string</td>
+<td>true</td>
+<td>&quot;119&quot;</td>
+<td>传真</td>
+</tr>
+<tr>
+<td>mobilePhone</td>
+<td>string</td>
+<td>true</td>
+<td>&quot;120&quot;</td>
+<td>手机号</td>
+</tr>
+<tr>
+<td>concatUser</td>
+<td><a href="#i18n">i18n</a></td>
+<td>true</td>
+<td>{&quot;cn&quot;: &quot;灿灿&quot;}</td>
+<td>联系人</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>true</td>
+<td>&quot;xxx@qq.com&quot;</td>
+<td>邮箱</td>
+</tr>
+<tr>
+<td>address</td>
+<td><a href="#i18n">i18n</a></td>
+<td>true</td>
+<td>{&quot;cn&quot;: &quot;杭州&quot;}</td>
+<td>地址</td>
+</tr>
+<tr>
+<td>logo</td>
+<td>string</td>
+<td>true</td>
+<td>&quot;<a href="http://xxxx.jpg">http://xxxx.jpg</a>&quot;</td>
+<td>公司 logo</td>
+</tr>
+<tr>
+<td>briefIntroduction</td>
+<td><a href="#i18n">i18n</a></td>
+<td>true</td>
+<td>{&quot;cn&quot;: &quot;xxx&quot;}</td>
+<td>公司介绍</td>
+</tr>
+<tr>
+<td>latLng</td>
+<td>map</td>
+<td>true</td>
+<td>{&quot;lat&quot;: 111.01, &quot;lng&quot;: 222.02}</td>
+<td>经纬度</td>
+</tr>
+<tr>
+<td>latLng.lat</td>
+<td>float</td>
+<td>true</td>
+<td>111.01</td>
+<td>维度</td>
+</tr>
+<tr>
+<td>latLng.lng</td>
+<td>float</td>
+<td>true</td>
+<td>222.02</td>
+<td>经度</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_14">返回参数</h4>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: null
+}</code></pre></div>
+
+<div id="company-get-info"></div>
+
+<h3 id="toc_15">获取公司展示信息</h3>
+
+<h4 id="toc_16">接口标识</h4>
+
+<p>请求方式：HTTP GET<br>
+接口名称：/v1/company/info<br>
+参数类型: 无</p>
+
+<h4 id="toc_17">返回参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>电话</td>
+</tr>
+<tr>
+<td>fax</td>
+<td>string</td>
+<td>传真</td>
+</tr>
+<tr>
+<td>mobilePhone</td>
+<td>string</td>
+<td>手机号</td>
+</tr>
+<tr>
+<td>concatUser</td>
+<td>string</td>
+<td>联系人</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>邮箱</td>
+</tr>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>地址</td>
+</tr>
+<tr>
+<td>logo</td>
+<td>string</td>
+<td>公司 logo</td>
+</tr>
+<tr>
+<td>briefIntroduction</td>
+<td>string</td>
+<td>公司介绍</td>
+</tr>
+<tr>
+<td>latLng</td>
+<td>map</td>
+<td>经纬度</td>
+</tr>
+<tr>
+<td>latLng.lat</td>
+<td>float</td>
+<td>维度</td>
+</tr>
+<tr>
+<td>latLng.lng</td>
+<td>float</td>
+<td>经度</td>
+</tr>
+</tbody>
+</table>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: {
+        &quot;phone&quot;: &quot;12345678901&quot;,
+        &quot;fax&quot;: &quot;12345678901&quot;,
+        &quot;mobilePhone&quot;: &quot;12345678901&quot;,
+        &quot;concatUser&quot;: &quot;cancan&quot;,
+        &quot;email&quot;: &quot;1048042379@qq.com&quot;,
+        &quot;address&quot;: &quot;杭州&quot;,
+        &quot;logo&quot;: &quot;xxxx&quot;,
+        &quot;BriefIntroduction&quot;: &quot;行货组水电费水电费第三方第三方撒范德萨发顺丰&quot;,
+        &quot;latLng&quot;: {
+            &quot;lat&quot;: 111.01,
+            &quot;lng&quot;: 222.01
+        }
+    }
+}</code></pre></div>
+
+<div id="company-history-get-admin-list"></div>
+
+<h3 id="toc_18">获取公司历史编辑信息</h3>
+
+<h4 id="toc_19">接口标识</h4>
+
+<p>请求方式：HTTP GET<br>
+接口名称：/admin/company/history/list<br>
+参数类型：无</p>
+
+<h4 id="toc_20">返回参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>timestamp</td>
+<td>int</td>
+<td>时间戳</td>
+</tr>
+<tr>
+<td>content</td>
+<td><a href="#i18n">i18n</a></td>
+<td>内容</td>
+</tr>
+</tbody>
+</table>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;timestamp&quot;: 1568551589,
+            &quot;content&quot;: {
+                &quot;cn&quot;: &quot;aaaa&quot;,
+                &quot;en&quot;: &quot;bbbb&quot;
+            }
+        }
+    ]
+}</code></pre></div>
+
+<div id="company-history-set"></div>
+
+<h3 id="toc_21">设置公司历史信息</h3>
+
+<h4 id="toc_22">接口标识</h4>
+
+<p>请求方式：HTTP POST<br>
+接口名称：/admin/company/history/set<br>
+参数类型：application/json</p>
+
+<h4 id="toc_23">请求参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>必传</th>
+<th>示例</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>timestamp</td>
+<td>int</td>
+<td>true</td>
+<td>1568551589</td>
+<td>时间戳</td>
+</tr>
+<tr>
+<td>content</td>
+<td><a href="#i18n">i18n</a></td>
+<td>true</td>
+<td>{&quot;cn&quot;: &quot;aa&quot;}</td>
+<td>内容</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_24">返回参数</h4>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: null
+}</code></pre></div>
+
+<div id="company-history-del"></div>
+
+<h3 id="toc_25">删除公司历史编辑信息</h3>
+
+<h4 id="toc_26">接口标识</h4>
+
+<p>请求方式：HTTP POST<br>
+接口名称：/admin/company/history/del<br>
+参数类型：无</p>
+
+<h4 id="toc_27">返回参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>timestamp</td>
+<td>int</td>
+<td>时间戳</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_28">返回参数</h4>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: null
+}</code></pre></div>
+
+<div id="company-history-get"></div>
+
+<h3 id="toc_29">获取公司历史展示信息</h3>
+
+<h4 id="toc_30">接口标识</h4>
+
+<p>请求方式：HTTP GET<br>
+接口名称：/v1/company/history/list<br>
+参数类型：无</p>
+
+<h4 id="toc_31">返回参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>timestamp</td>
+<td>int</td>
+<td>时间戳</td>
+</tr>
+<tr>
+<td>content</td>
+<td>string</td>
+<td>内容</td>
+</tr>
+</tbody>
+</table>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;timestamp&quot;: 1568551589,
+            &quot;content&quot;: &quot;aaaa&quot;
+        }
+    ]
+}</code></pre></div>
+
+<div id="company-news-get-admin-list"></div>
+
+<h3 id="toc_32">获取公司新闻编辑信息</h3>
+
+<h4 id="toc_33">接口标识</h4>
+
+<p>请求方式：HTTP GET<br>
+接口名称：/admin/company/news/list<br>
+参数类型：无</p>
+
+<h4 id="toc_34">返回参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>唯一标识</td>
+</tr>
+<tr>
+<td>title</td>
+<td><a href="#i18n">i18n</a></td>
+<td>标题</td>
+</tr>
+<tr>
+<td>content</td>
+<td><a href="#i18n">i18n</a></td>
+<td>内容</td>
+</tr>
+<tr>
+<td>img</td>
+<td>string</td>
+<td>图片</td>
+</tr>
+<tr>
+<td>time</td>
+<td>int</td>
+<td>新闻时间戳</td>
+</tr>
+<tr>
+<td>setTime</td>
+<td>int</td>
+<td>新闻设置时间</td>
+</tr>
+</tbody>
+</table>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: {
+                &quot;cn&quot;: &quot;测试2&quot;,
+                &quot;en&quot;: &quot;test2&quot;
+            },
+            &quot;content&quot;: {
+                &quot;cn&quot;: &quot;啊啊啊啊2&quot;,
+                &quot;en&quot;: &quot;aaaa2&quot;
+            },
+            &quot;img&quot;: &quot;xxxxxx&quot;,
+            &quot;time&quot;: 1568734342,
+            &quot;setTime&quot;: 1568734342
+        }
+    ]
+}</code></pre></div>
+
+<div id="company-news-set"></div>
+
+<h3 id="toc_35">设置公司新闻信息</h3>
+
+<h4 id="toc_36">接口标识</h4>
+
+<p>请求方式：HTTP POST<br>
+接口名称：/admin/company/news/set<br>
+参数类型：application/json</p>
+
+<h4 id="toc_37">请求参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>必传</th>
+<th>示例</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>false</td>
+<td>1</td>
+<td>唯一标识，0 新增，非 0 则修改</td>
+</tr>
+<tr>
+<td>title</td>
+<td><a href="#i18n">i18n</a></td>
+<td>true</td>
+<td>{&quot;cn&quot;: &quot;aa&quot;}</td>
+<td>标题</td>
+</tr>
+<tr>
+<td>content</td>
+<td><a href="#i18n">i18n</a></td>
+<td>true</td>
+<td>{&quot;cn&quot;: &quot;aa&quot;}</td>
+<td>内容</td>
+</tr>
+<tr>
+<td>img</td>
+<td>string</td>
+<td>true</td>
+<td>&quot;<a href="http://xxx.jpg">http://xxx.jpg</a>&quot;</td>
+<td>图片地址</td>
+</tr>
+<tr>
+<td>time</td>
+<td>int</td>
+<td>true</td>
+<td>1568734342</td>
+<td>新闻时间戳</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_38">返回参数</h4>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: null
+}</code></pre></div>
+
+<div id="company-news-del"></div>
+
+<h3 id="toc_39">删除公司新闻信息</h3>
+
+<h4 id="toc_40">接口标识</h4>
+
+<p>请求方式：HTTP POST<br>
+接口名称：/admin/company/news/del<br>
+参数类型：application/json</p>
+
+<h4 id="toc_41">请求参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>必传</th>
+<th>示例</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>false</td>
+<td>1</td>
+<td>唯一标识</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_42">返回参数</h4>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: null
+}</code></pre></div>
+
+<div id="company-news-get-list"></div>
+
+<h3 id="toc_43">获取公司新闻展示信息</h3>
+
+<h4 id="toc_44">接口标识</h4>
+
+<p>请求方式：HTTP GET<br>
+接口名称：/v1/company/history/list<br>
+参数类型：无</p>
+
+<h4 id="toc_45">返回参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>唯一标识</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>标题</td>
+</tr>
+<tr>
+<td>content</td>
+<td>string</td>
+<td>内容</td>
+</tr>
+<tr>
+<td>img</td>
+<td>string</td>
+<td>图片</td>
+</tr>
+<tr>
+<td>time</td>
+<td>int</td>
+<td>新闻时间戳</td>
+</tr>
+</tbody>
+</table>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;img&quot;: &quot;xxxxxx&quot;,
+            &quot;title&quot;: &quot;测试2&quot;,
+            &quot;content&quot;: &quot;啊啊啊啊2&quot;,
+            &quot;time&quot;: 1568734342
+        }
+    ]
+}</code></pre></div>
+
+<div id="feedback"></div>
+
+<h2 id="toc_46">用户反馈相关接口</h2>
+
+<div id="feedback-submit"></div>
+
+<h3 id="toc_47">提交反馈</h3>
+
+<h4 id="toc_48">接口标识</h4>
+
+<p>请求方式：HTTP POST<br>
+接口名称：/v1/feedback/submit<br>
+参数类型：application/json</p>
+
+<h4 id="toc_49">请求参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>必传</th>
+<th>示例</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>true</td>
+<td>&quot;cancan&quot;</td>
+<td>姓名</td>
+</tr>
+<tr>
+<td>company</td>
+<td>string</td>
+<td>true</td>
+<td>&quot;tianji&quot;</td>
+<td>公司</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>true</td>
+<td>&quot;13738101971&quot;</td>
+<td>电话</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>true</td>
+<td>&quot;1048042379@qq.com&quot;</td>
+<td>邮箱</td>
+</tr>
+<tr>
+<td>content</td>
+<td>string</td>
+<td>true</td>
+<td>&quot;233&quot;</td>
+<td>内容</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_50">返回参数</h4>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: null
+}</code></pre></div>
+
+<div id="feedback-admin-list"></div>
+
+<h3 id="toc_51">后台反馈列表</h3>
+
+<h4 id="toc_52">接口标识</h4>
+
+<p>请求方式：HTTP GET<br>
+接口名称：/admin/feedback/list<br>
+参数类型：无</p>
+
+<h4 id="toc_53">返回参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>唯一标识</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>姓名</td>
+</tr>
+<tr>
+<td>company</td>
+<td>string</td>
+<td>公司</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>手机</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>邮箱</td>
+</tr>
+<tr>
+<td>content</td>
+<td>string</td>
+<td>内容</td>
+</tr>
+<tr>
+<td>time</td>
+<td>int</td>
+<td>反馈时间</td>
+</tr>
+</tbody>
+</table>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;cancan&quot;,
+            &quot;company&quot;: &quot;tianji&quot;,
+            &quot;phone&quot;: &quot;13738101971&quot;,
+            &quot;email&quot;: &quot;10480482379@qq.com&quot;,
+            &quot;content&quot;: &quot;23333 哈哈哈哈哈哈&quot;,
+            &quot;time&quot;: 1568908071
+        }
+    ]
+}</code></pre></div>
+
+<div id="product"></div>
+
+<h2 id="toc_54">产品相关接口</h2>
+
+<div id="product-category-list"></div>
+
+<h3 id="toc_55">产品分类列表</h3>
+
+<h4 id="toc_56">接口标识</h4>
+
+<p>请求方式：HTTP GET<br>
+接口名称：/v1/product/category/list<br>
+参数类型：无</p>
+
+<h4 id="toc_57">返回参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>唯一标识</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>名称</td>
+</tr>
+<tr>
+<td>child</td>
+<td>array</td>
+<td>子分类</td>
+</tr>
+</tbody>
+</table>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;label&quot;: &quot;金属纽系列&quot;,
+            &quot;child&quot;: [
+                {
+                    &quot;id&quot;: 8,
+                    &quot;label&quot;: &quot;工字扣&quot;,
+                    &quot;child&quot;: []
+                },
+                {
+                    &quot;id&quot;: 9,
+                    &quot;label&quot;: &quot;铆钉&quot;,
+                    &quot;child&quot;: []
+                }
+            ]
+        }
+    ]
+}</code></pre></div>
+
+<div id="nav"></div>
+
+<h2 id="toc_58">导航栏相关接口</h2>
+
+<div id="nav-menus"></div>
+
+<h3 id="toc_59">菜单栏</h3>
+
+<h4 id="toc_60">接口标识</h4>
+
+<p>请求方式：HTTP GET<br>
+接口名称：/v1/nav/menus/list<br>
+参数类型：无</p>
+
+<h4 id="toc_61">返回参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>名称</td>
+</tr>
+<tr>
+<td>state</td>
+<td>string</td>
+<td>路由</td>
+</tr>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>编号</td>
+</tr>
+<tr>
+<td>pid</td>
+<td>int</td>
+<td>子编号</td>
+</tr>
+</tbody>
+</table>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;name&quot;: &quot;menus.home&quot;,
+            &quot;state&quot;: &quot;/app/home&quot;,
+            &quot;id&quot;: 7,
+            &quot;pid&quot;: -1
+        },
+        {
+            &quot;name&quot;: &quot;menus.aboutUs&quot;,
+            &quot;id&quot;: 1,
+            &quot;pid&quot;: -1
+        }
+    ]
+}</code></pre></div>
+
+<div id="image"></div>
+
+<h2 id="toc_62">图片相关接口</h2>
+
+<div id="image-upload"></div>
+
+<h3 id="toc_63">上传图片</h3>
+
+<h4 id="toc_64">接口标识</h4>
+
+<p>请求方式：HTTP POST<br>
+接口名称：/admin/image/upload<br>
+参数类型：form-data</p>
+
+<h4 id="toc_65">请求参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>必传</th>
+<th>示例</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>uploadFile</td>
+<td>file</td>
+<td>true</td>
+<td>&quot;xxx.jpg&quot;</td>
+<td>上传图片文件，大小限制 5MB</td>
+</tr>
+<tr>
+<td>dir</td>
+<td>string</td>
+<td>true</td>
+<td>&quot;1&quot;</td>
+<td>目录，&quot;1&quot;=&quot;/logo&quot;</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_66">返回参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>示例</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>&quot;/statics/logo/xxx.jpg&quot;</td>
+<td>图片地址</td>
+</tr>
+</tbody>
+</table>
+
+<div><pre><code class="language-javascript">{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;&quot;,
+    &quot;data&quot;: {
+        &quot;url&quot;: &quot;/statics/logo/3c8f0faa6aa89664a00729428196ab05.jpg&quot;
+    }
+}</code></pre></div>
+
+
+
+
+</body>
+
+</html>
