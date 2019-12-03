@@ -8,5 +8,6 @@ class BaseConf
 {
     static $ValidatorMessages = [
         'required' => 'param :attribute miss',
+        'size' => ':attribute must be exactly :size.',
     ];
 }

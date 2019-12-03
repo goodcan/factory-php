@@ -19,7 +19,24 @@ class Company extends Controller
 
     public function setInfo()
     {
-        DAOCompany::updateInfo(request()->all());
+        $input = request()->all();
+
+        $validator = Validator::make($input, [
+            'phone' => 'required',
+            'mobilePhone' => 'required',
+            'concatUser' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'logo' => 'required',
+            'briefIntroduction' => 'required',
+            'latLng' => 'required'
+        ], BaseConf::$ValidatorMessages);
+
+        if ($validator->fails()) {
+            return $this->respFailure($validator->errors());
+        }
+
+        DAOCompany::updateInfo($input);
         return $this->respSuccess();
     }
 

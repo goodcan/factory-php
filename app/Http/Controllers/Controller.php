@@ -18,6 +18,9 @@ class Controller extends BaseController
 
     public function respFailure($msg = 'error', $code = 0)
     {
+        if (is_array($msg)) {
+            $msg = join($msg, ',');
+        }
         return $this->response(null, $code, $msg);
     }
 

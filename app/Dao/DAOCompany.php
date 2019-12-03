@@ -10,44 +10,52 @@ use App\Utils\L18n;
 
 class DAOCompany
 {
-    static function getInfo($lang = null)
+
+    static function baseInfo()
     {
-        $company = DB::table(DBTable::$Company)->first();
-        $info = [
-            'phone' => $company->phone,
-            'fax' => $company->fax,
-            'mobilePhone' => $company->mobilePhone,
-            'concatUser' => L18n::decodeDBField($company->concatUser, $lang),
-            'email' => $company->email,
-            'address' => L18n::decodeDBField($company->address, $lang),
-            'logo' => $company->logo,
-            'briefIntroduction' => L18n::decodeDBField($company->briefIntroduction, $lang),
-        ];
-        if ($company->latLng === null) {
-            $info['latLng'] = [
+        return [
+            'phone' => '',
+            'fax' => '',
+            'mobilePhone' => '',
+            'concatUser' => L18n::decodeDBField(NULL),
+            'email' => '',
+            'address' => L18n::decodeDBField(NULL),
+            'logo' => '',
+            'briefIntroduction' => L18n::decodeDBField(NULL),
+            'latLng' => [
                 'lat' => 0,
                 'lng' => 0
-            ];
-        } else {
-            $info['latLng'] = Json::decodeDBField($company->latLng);
+            ]
+        ];
+    }
+
+    static function getInfo($lang = null)
+    {
+        $query = DB::table(DBTable::$Company)->first();
+        $info = DAOCompany::baseInfo();
+        if (is_null($query)) {
+            return $info;
+        }
+        $info['phone'] = $query->phone;
+        $info['fax'] = $query->fax;
+        $info['mobilePhone'] = $query->mobilePhone;
+        $info['concatUser'] = L18n::decodeDBField($query->concatUser, $lang);
+        $info['email'] = $query->email;
+        $info['address'] = L18n::decodeDBField($query->address, $lang);
+        $info['logo'] = $query->logo;
+        $info['briefIntroduction'] = L18n::decodeDBField($query->briefIntroduction, $lang);
+        if ($query->latLng !== null) {
+            $info['latLng'] = Json::decodeDBField($query->latLng);
         }
         return $info;
     }
 
     static function updateInfo($data)
     {
-        if (array_key_exists('concatUser', $data)) {
-            $data['concatUser'] = Json::encodeDBField($data['concatUser']);
-        }
-        if (array_key_exists('address', $data)) {
-            $data['address'] = Json::encodeDBField($data['address']);
-        }
-        if (array_key_exists('briefIntroduction', $data)) {
-            $data['briefIntroduction'] = Json::encodeDBField($data['briefIntroduction']);
-        }
-        if (array_key_exists('latLng', $data)) {
-            $data['latLng'] = Json::encodeDBField($data['latLng']);
-        }
+        $data['concatUser'] = Json::encodeDBField($data['concatUser']);
+        $data['address'] = Json::encodeDBField($data['address']);
+        $data['briefIntroduction'] = Json::encodeDBField($data['briefIntroduction']);
+        $data['latLng'] = Json::encodeDBField($data['latLng']);
         $data['id'] = 1;
         DB::table(DBTable::$Company)
             ->updateOrInsert(['id' => $data['id']], $data);
@@ -65,13 +73,15 @@ class DAOCompany
 
     static function upsertHistory($data)
     {
-        if (array_key_exists('content', $data)) {
-            $data['content'] = Json::encodeDBField($data['content']);
-        }
+        $data['content'] = Json::encodeDBField($data['content']);
         DB::table(DBTable::$CompanyHistory)
             ->updateOrInsert(['timestamp' => $data['timestamp']], $data);
     }
 
+    static function delHistory($timestamp)
+    {
+        DB::table(DBTable::$CompanyHistory)->where('timestamp', $timestamp)->delete();
+    }
 
     static function getNews($lang = null)
     {
