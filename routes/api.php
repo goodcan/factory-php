@@ -35,6 +35,10 @@ Route::group(['prefix' => 'admin'], function () {
             Route::post('del', 'Admin\Company@delNews');
         });
     });
+
+    Route::group(['refix' => 'image'], function() {
+        Route::post('upload', 'Admin\Image#upload');
+    });
 });
 
 Route::group(['prefix' => 'v1'], function () {
