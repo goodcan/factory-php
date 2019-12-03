@@ -1,17 +1,16 @@
 <?php
 
+namespace App\Dao;
 
-namespace App\Http\Controllers\Dao;
-
-
-use App\Http\Controllers\Conf\DBTable;
-use App\Http\Controllers\Common\Json;
-use App\Http\Controllers\Common\L18n;
 use Illuminate\Support\Facades\DB;
+
+use App\Conf\DBTable;
+use App\Utils\Json;
+use App\Utils\L18n;
 
 class DAOCompany
 {
-    static function get($lang = null)
+    static function getInfo($lang = null)
     {
         $company = DB::table(DBTable::$Company)->first();
         $info = [
@@ -35,7 +34,7 @@ class DAOCompany
         return $info;
     }
 
-    static function update($data)
+    static function updateInfo($data)
     {
         if (array_key_exists('concatUser', $data)) {
             $data['concatUser'] = Json::encodeDBField($data['concatUser']);
@@ -50,7 +49,36 @@ class DAOCompany
             $data['latLng'] = Json::encodeDBField($data['latLng']);
         }
         DB::table(DBTable::$Company)
-            ->where('id', 1)
-            ->update($data);
+            ->updateOrInsert(['id' => 1], $data);
+    }
+
+
+    static function getHistory($lang = null)
+    {
+        $data = DB::table(DBTable::$CompanyHistory)->get(['timestamp', 'content']);
+        foreach ($data as $item) {
+            $item->content = L18n::decodeDBField($item->content, $lang);
+        }
+        return $data;
+    }
+
+    static function upsertHistory($data)
+    {
+        if (array_key_exists('content', $data)) {
+            $data['content'] = Json::encodeDBField($data['content']);
+        }
+        DB::table(DBTable::$CompanyHistory)
+            ->updateOrInsert(['timestamp' => $data['timestamp']], $data);
+    }
+
+
+    static function getNews($lang = null)
+    {
+        $data = DB::table(DBTable::$CompanyNews)->get();
+        foreach ($data as $item) {
+            $item->title = L18n::decodeDBField($item->title, $lang);
+            $item->content = L18n::decodeDBField($item->content, $lang);
+        }
+        return $data;
     }
 }

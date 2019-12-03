@@ -1,41 +1,38 @@
 <?php
 
-
 namespace App\Http\Controllers\Admin;
 
-
+use App\Dao\DAOCompany;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Dao\DAOCompany;
-use App\Http\Controllers\Dao\DAOCompanyHistory;
-use App\Http\Controllers\Dao\DAOCompanyNews;
+
 
 class Company extends Controller
 {
     public function getInfo()
     {
-        return $this->respSuccess(DAOCompany::get());
+        return $this->respSuccess(DAOCompany::getInfo());
     }
 
     public function setInfo()
     {
-        DAOCompany::update(request()->all());
+        DAOCompany::updateInfo(request()->all());
         return $this->respSuccess();
     }
 
     public function getHistoryList()
     {
-        return $this->respSuccess(DAOCompanyHistory::get());
+        return $this->respSuccess(DAOCompany::getHistory());
     }
 
     public function setHistory()
     {
-        DAOCompanyHistory::upsert(request()->all());
+        DAOCompany::upsertHistory(request()->all());
         return $this->respSuccess();
     }
 
     public function getNewsList()
     {
-        return $this->respSuccess(DAOCompanyNews::get());
+        return $this->respSuccess(DAOCompany::getNews());
     }
 
     public function setNews()

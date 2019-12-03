@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Utils;
+namespace App\Utils;
 
 class L18n
 {

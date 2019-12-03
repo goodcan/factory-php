@@ -11,7 +11,7 @@ class Json
 
     static function encodeDBField($data)
     {
-        if (is_null($data)) {
+        if ($data === NULL) {
             return '';
         }
         return json_encode($data);
