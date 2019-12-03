@@ -31,6 +31,8 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::group(['prefix' => 'news'], function () {
             Route::get('list', 'Admin\Company@getNewsList');
+            Route::post('set', 'Admin\Company@setNews');
+            Route::post('del', 'Admin\Company@delNews');
         });
     });
 });
@@ -39,5 +41,6 @@ Route::group(['prefix' => 'v1'], function () {
     Route::group(['prefix' => 'company'], function () {
         Route::get('info', 'Main\Company@info');
         Route::get('history/list', 'Main\Company@historyList');
+        Route::get('news/list', 'Main\Company@newsList');
     });
 });

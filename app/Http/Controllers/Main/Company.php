@@ -17,4 +17,9 @@ class Company extends Controller
     {
         return $this->respSuccess(DAOCompany::getHistory(request()->header('language', 'cn')));
     }
+
+    public function newsList()
+    {
+        return $this->respSuccess(DAOCompany::getNews(request()->header('language', 'cn')));
+    }
 }

@@ -85,6 +85,46 @@ class Company extends Controller
 
     public function setNews()
     {
+        $input = request()->all();
+
+        $validator = Validator::make($input, [
+            'title' => 'required',
+            'content' => 'required',
+            'img' => 'required',
+            'time' => 'required'
+        ], BaseConf::$ValidatorMessages);
+
+        if ($validator->fails()) {
+            return $this->respFailure($validator->errors());
+        }
+
+        if (array_key_exists('id', $input)) {
+            if ($input['id'] !== 0 && !DAOCompany::checkNewsExists($input['id'])) {
+                return $this->respFailure('news is not exists');
+            }
+        }
+
+        DAOCompany::setNews($input);
+        return $this->respSuccess();
+    }
+
+    public function delNews()
+    {
+        $input = request()->all();
+
+        $validator = Validator::make($input, [
+            'id' => 'required'
+        ], BaseConf::$ValidatorMessages);
+
+        if ($validator->fails()) {
+            return $this->respFailure($validator->errors());
+        }
+
+        if (!DAOCompany::checkNewsExists($input['id'])) {
+            return $this->respFailure('news is not exists');
+        }
+
+        DAOCompany::delNews($input['id']);
         return $this->respSuccess();
     }
 }

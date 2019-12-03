@@ -92,4 +92,33 @@ class DAOCompany
         }
         return $data;
     }
+
+    static function checkNewsExists($id)
+    {
+        return DB::table(DBTable::$CompanyNews)
+            ->where('id', $id)
+            ->exists();
+    }
+
+    static function setNews($data)
+    {
+        $data['title'] = Json::encodeDBField($data['title']);
+        $data['content'] = Json::encodeDBField($data['content']);
+        $data['setTime'] = time();
+        if (array_key_exists('id', $data) && $data['id'] !== 0) {
+            DB::table(DBTable::$CompanyNews)
+                ->where('id', $data['id'])
+                ->update($data);
+        } else {
+            DB::table(DBTable::$CompanyNews)
+                ->insert($data);
+        }
+    }
+
+    static function delNews($id)
+    {
+        DB::table(DBTable::$CompanyNews)
+            ->where('id', $id)
+            ->delete();
+    }
 }

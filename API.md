@@ -9,11 +9,12 @@
     - [设置公司信息](#company-set-info)
     - [获取公司展示信息](#company-get-info)
     - [获取公司历史编辑信息](#company-history-get-admin-list)
-    - [删除公司历史编辑信息](#company-history-del-admi)
     - [设置公司历史信息](#company-history-set)
+    - [删除公司历史信息](#company-history-del)
     - [获取公司历史展示信息](#company-history-get)
     - [获取公司新闻编辑信息](#company-news-get-admin-list)
     - [设置公司新闻信息](#company-news-set)
+    - [删除公司新闻信息](#company-news-del)
     - [获取公司新闻展示信息](#company-news-get-list)
 - [用户反馈相关接口](#feedback)
     - [提交反馈](#feedback-submit)
@@ -218,28 +219,6 @@
 }
 ```
 
-<div id="company-history-del-admin-list"></div>
-
-### 删除公司历史编辑信息
-#### 接口标识
-请求方式：HTTP POST  
-接口名称：/admin/company/history/del  
-参数类型：无
-
-#### 返回参数
-| 参数名 | 类型 | 描述 |
-| --- | --- | --- |
-| timestamp | int | 时间戳 |
-
-#### 返回参数
-```json
-{
-    "code": 1,
-    "msg": "",
-    "data": null
-}
-```
-
 <div id="company-history-set"></div>
 
 ### 设置公司历史信息
@@ -253,6 +232,28 @@
 | --- | --- | --- | --- | --- |
 | timestamp | int | true | 1568551589 | 时间戳 |
 | content | [i18n](#i18n) | true | {"cn": "aa"} |  内容 |
+
+#### 返回参数
+```json
+{
+    "code": 1,
+    "msg": "",
+    "data": null
+}
+```
+
+<div id="company-history-del"></div>
+
+### 删除公司历史编辑信息
+#### 接口标识
+请求方式：HTTP POST  
+接口名称：/admin/company/history/del  
+参数类型：无
+
+#### 返回参数
+| 参数名 | 类型 | 描述 |
+| --- | --- | --- |
+| timestamp | int | 时间戳 |
 
 #### 返回参数
 ```json
@@ -289,8 +290,6 @@
     ]
 }
 ```
-
-<div id="nav"></div>
 
 <div id="company-news-get-admin-list"></div>
 
@@ -349,6 +348,29 @@
 | title | [i18n](#i18n) | true | {"cn": "aa"} | 标题 |
 | content | [i18n](#i18n) | true | {"cn": "aa"} |  内容 |
 | img | string | true | "<http://xxx.jpg>" |  图片地址 |
+| time | int | true | 1568734342 | 新闻时间戳 |
+
+#### 返回参数
+```json
+{
+    "code": 1,
+    "msg": "",
+    "data": null
+}
+```
+
+<div id="company-news-del"></div>
+
+### 删除公司新闻信息
+#### 接口标识
+请求方式：HTTP POST  
+接口名称：/admin/company/news/del  
+参数类型：application/json
+
+#### 请求参数
+| 参数名 | 类型 | 必传 | 示例 | 描述 |
+| --- | --- | --- | --- | --- |
+| id | int | false | 1 | 唯一标识 |
 
 #### 返回参数
 ```json
@@ -502,6 +524,7 @@
     ]
 }
 ```
+<div id="nav"></div>
 
 ## 导航栏相关接口
 
