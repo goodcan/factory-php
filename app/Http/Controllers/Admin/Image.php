@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Storage;
 
-use App\Utils\Md5;
 use App\Conf\BaseConf;
 use App\Http\Controllers\Controller;
 
