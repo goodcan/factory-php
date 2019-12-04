@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Storage;
 
+use App\Utils\Md5;
 use App\Conf\BaseConf;
 use App\Http\Controllers\Controller;
 
@@ -38,6 +39,7 @@ class Image extends Controller
         }
 
         $filename = $file->getClientOriginalName();
+        $filename = Md5::encode($filename) . '.' . $fileType;
 
         if (Storage::disk(BaseConf::$UploadPath[$dir])->put($filename, file_get_contents($file))) {
             return $this->respSuccess([
