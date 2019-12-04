@@ -53,6 +53,11 @@ return [
             'root' => public_path('storage/logo'),
         ],
 
+        'product' => [
+            'driver' => 'local',
+            'root' => public_path('storage/product'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
