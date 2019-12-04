@@ -580,7 +580,7 @@
 | 参数名 | 类型 | 必传 | 示例 | 描述 |
 | --- | --- | --- | --- | --- |
 | uploadFile | file | true | "xxx.jpg" | 上传图片文件，大小限制 5MB |
-| dir | string | true | "1" | 目录，"1"="/logo" |
+| dir | string | true | "1" | 目录，"1"="/logo","2"="/product" |
 
 #### 返回参数
 | 参数名 | 类型 | 示例 | 描述 |
