@@ -248,7 +248,7 @@
 #### 接口标识
 请求方式：HTTP POST  
 接口名称：/admin/company/history/del  
-参数类型：无
+参数类型：application/json
 
 #### 返回参数
 | 参数名 | 类型 | 描述 |
