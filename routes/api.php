@@ -36,8 +36,8 @@ Route::group(['prefix' => 'admin'], function () {
         });
     });
 
-    Route::group(['refix' => 'image'], function() {
-        Route::post('upload', 'Admin\Image#upload');
+    Route::group(['prefix' => 'image'], function() {
+        Route::post('upload', 'Admin\Image@upload');
     });
 });
 
