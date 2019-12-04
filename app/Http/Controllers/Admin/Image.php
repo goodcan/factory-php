@@ -38,7 +38,7 @@ class Image extends Controller
             return $this->respFailure('file type error');
         }
 
-        $filename = Md5::encode(date('y-m-d-h-i-s')) . '.' . $fileType;
+        $filename = $file->getClientOriginalName();
 
         if (Storage::disk(BaseConf::$UploadPath[$dir])->put($filename, file_get_contents($file))) {
             return $this->respSuccess([
