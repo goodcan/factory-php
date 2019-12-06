@@ -36,7 +36,9 @@ Route::group(['prefix' => 'admin'], function () {
         });
     });
 
-    Route::group(['prefix' => 'image'], function() {
+    Route::post('feedback/list', 'Main\Feedback@getList');
+
+    Route::group(['prefix' => 'image'], function () {
         Route::post('upload', 'Admin\Image@upload');
     });
 });
@@ -47,4 +49,5 @@ Route::group(['prefix' => 'v1'], function () {
         Route::get('history/list', 'Main\Company@historyList');
         Route::get('news/list', 'Main\Company@newsList');
     });
+    Route::post('feedback/submit', 'Main\Feedback@submit');
 });
