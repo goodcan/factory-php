@@ -22,6 +22,7 @@ Route::get('test/insert', 'TestController@insert');
 Route::get('test/delete', 'TestController@delete');  
 Route::get('test/update', 'TestController@update');  
 Route::get('test/select', 'TestController@select'); 
+Route::get('test/selectPaginate', 'TestController@selectPaginate'); 
 
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'company'], function () {

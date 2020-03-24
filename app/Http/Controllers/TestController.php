@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
 
+use Input;
+
 class TestController extends Controller
 {
     public function insert(){
@@ -52,5 +54,19 @@ class TestController extends Controller
         foreach ($data as $key => $value) {
             echo "id是：{$value->id}, 名字是: {$value->name},邮箱是: {$value->email} </br>";
         }
+    }
+
+    public function selectPaginate(){
+
+        $page = Input::get('page',1);
+        $pageSize = Input::get('pageSize',10);
+
+        $db = DB::table('test');
+        $data = $db->paginate($pageSize);
+        // dd($data);
+        foreach ($data as $key => $value) {
+            echo "id是：{$value->id}, 名字是: {$value->name},邮箱是: {$value->email} </br>";
+        }
+        return $data ;
     }
 }

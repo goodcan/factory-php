@@ -226,6 +226,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        //自定义
+        'Input' => Illuminate\Support\Facades\Input::class,
     ],
 
 ];

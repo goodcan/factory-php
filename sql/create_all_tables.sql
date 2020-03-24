@@ -53,6 +53,7 @@ DROP TABLE IF EXISTS `company_news`;
 CREATE TABLE `company_news` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` json NOT NULL,
+  `summary` json NOT NULL,
   `content` json NOT NULL,
   `img` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '',
   `time` int(10) DEFAULT NULL,

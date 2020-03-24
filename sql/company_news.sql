@@ -25,6 +25,7 @@ CREATE TABLE `company_news`  (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `title` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `summary` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `img` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
   `time` int(10) NULL DEFAULT NULL,
   `setTime` int(10) NULL DEFAULT NULL,
