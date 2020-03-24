@@ -18,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
+Route::get('test/insert', 'TestController@insert');  
+Route::get('test/delete', 'TestController@delete');  
+Route::get('test/update', 'TestController@update');  
+Route::get('test/select', 'TestController@select'); 
+
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'company'], function () {
         Route::get('getInfo', 'Admin\Company@getInfo');
