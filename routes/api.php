@@ -36,6 +36,7 @@ Route::group(['prefix' => 'admin'], function () {
         });
 
         Route::group(['prefix' => 'news'], function () {
+            Route::get('get', 'Admin\Company@getNewsById');
             Route::get('list', 'Admin\Company@getNewsList');
             Route::post('set', 'Admin\Company@setNews');
             Route::post('del', 'Admin\Company@delNews');

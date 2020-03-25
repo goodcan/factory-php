@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Conf\DBTable;
 use App\Utils\Json;
 use App\Utils\L18n;
+use Input;
 
 class DAOCompany
 {
@@ -92,11 +93,26 @@ class DAOCompany
 
     static function getNews($lang = null)
     {
-        $data = DB::table(DBTable::$CompanyNews)->get();
+        $page = Input::get('page',1);
+        $pageSize = Input::get('pageSize',10);
+
+        $data = DB::table(DBTable::$CompanyNews)->paginate($pageSize);
         foreach ($data as $item) {
             $item->title = L18n::decodeDBField($item->title, $lang);
+            $item->summary = L18n::decodeDBField($item->summary, $lang);
             $item->content = L18n::decodeDBField($item->content, $lang);
         }
+        return $data;
+    }
+
+    static function getNewsById($id,$lang = null)
+    {
+        $data = DB::table(DBTable::$CompanyNews)->where('id',$id)->get()[0];
+        // dd( $data);
+        $data->title = L18n::decodeDBField($data->title, $lang);
+        $data->summary = L18n::decodeDBField($data->summary, $lang);
+        $data->content = L18n::decodeDBField($data->content, $lang);
+     
         return $data;
     }
 
@@ -110,8 +126,10 @@ class DAOCompany
     static function setNews($data)
     {
         $data['title'] = Json::encodeDBField($data['title']);
+        $data['summary'] = Json::encodeDBField($data['summary']);
         $data['content'] = Json::encodeDBField($data['content']);
         $data['setTime'] = time();
+      
         if (array_key_exists('id', $data) && $data['id'] !== 0) {
             DB::table(DBTable::$CompanyNews)
                 ->where('id', $data['id'])
