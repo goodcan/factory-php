@@ -55,6 +55,7 @@ Route::group(['prefix' => 'v1'], function () {
         Route::get('info', 'Main\Company@info');
         Route::get('history/list', 'Main\Company@historyList');
         Route::get('news/list', 'Main\Company@newsList');
+        Route::get('news/get', 'Main\Company@getNewsById');
     });
     Route::post('feedback/submit', 'Main\Feedback@submit');
 });

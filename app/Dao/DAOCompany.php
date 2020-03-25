@@ -100,7 +100,8 @@ class DAOCompany
         foreach ($data as $item) {
             $item->title = L18n::decodeDBField($item->title, $lang);
             $item->summary = L18n::decodeDBField($item->summary, $lang);
-            $item->content = L18n::decodeDBField($item->content, $lang);
+            unset($item->content) ;
+            // $item->content = L18n::decodeDBField($item->content, $lang);
         }
         return $data;
     }
@@ -108,7 +109,7 @@ class DAOCompany
     static function getNewsById($id,$lang = null)
     {
         $data = DB::table(DBTable::$CompanyNews)->where('id',$id)->get()[0];
-        // dd( $data);
+        // dd( $lang);
         $data->title = L18n::decodeDBField($data->title, $lang);
         $data->summary = L18n::decodeDBField($data->summary, $lang);
         $data->content = L18n::decodeDBField($data->content, $lang);
