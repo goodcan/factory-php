@@ -43,7 +43,10 @@ Route::group(['prefix' => 'admin'], function () {
         });
     });
 
-    Route::get('feedback/list', 'Admin\Feedback@list');
+    Route::group(['prefix' => 'feedback'], function () {
+        Route::get('list', 'Admin\Feedback@list');
+        Route::get('delete', 'Admin\Feedback@delete');
+    });
 
     Route::group(['prefix' => 'image'], function () {
         Route::post('upload', 'Admin\Image@upload');
