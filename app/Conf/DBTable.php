@@ -10,4 +10,5 @@ class DBTable
     static $CompanyHistory = 'company_history';
     static $CompanyNews = 'company_news';
     static $Feedback = 'feedback';
+    static $ProductsNav = 'products_nav';
 }

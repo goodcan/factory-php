@@ -48,6 +48,16 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('delete', 'Admin\Feedback@delete');
     });
 
+    Route::group(['prefix' => 'products'], function () {
+        Route::group(['prefix' => 'nav'], function () {
+            Route::post('set', 'Admin\Products\nav@set');
+            Route::get('del', 'Admin\Products\nav@del');
+            Route::get('get', 'Admin\Products\nav@get');
+        });
+        
+        // Route::post('nav/set', 'Admin\products@set');
+    });
+
     Route::group(['prefix' => 'image'], function () {
         Route::post('upload', 'Admin\Image@upload');
     });
@@ -61,4 +71,5 @@ Route::group(['prefix' => 'v1'], function () {
         Route::get('news/get', 'Main\Company@getNewsById');
     });
     Route::post('feedback/submit', 'Main\Feedback@submit');
+    Route::get('products/nav/get', 'Main\Products\nav@get');
 });
