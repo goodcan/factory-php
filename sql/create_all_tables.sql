@@ -90,3 +90,18 @@ CREATE TABLE `products_nav`  (
 ) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 
+-- ----------------------------
+-- Table structure for feedback
+-- ----------------------------
+DROP TABLE IF EXISTS `products_item`;
+CREATE TABLE `products_item`  (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
+  `model` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
+  `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
+  `price` int(10)  NULL DEFAULT 0,
+  `type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
+  `createTime` int(10) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
