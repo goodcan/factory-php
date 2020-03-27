@@ -19,7 +19,7 @@ class BaseConf
     ];
 
     // 可上传文件类型
-    static $UploadFileType = ['jpg', 'jpeg', 'png'];
+    static $UploadFileType = ['jpg', 'jpeg', 'png',"JPG"];
 
     // 最大上传文件大小
     static $UploadMaxSize = 5 * 1024 * 1024;

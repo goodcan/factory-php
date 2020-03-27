@@ -20,7 +20,7 @@ class Image extends Controller
         }
 
         if ($file->getSize() > BaseConf::$UploadMaxSize) {
-            return $this->respFailure('file size > 5M');
+            return $this->respFailure('file size > 20M');
         }
 
         $dir = request()->get('dir');

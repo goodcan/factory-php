@@ -20,6 +20,14 @@ class nav extends Controller
     public function set(){
         $input = request()->all();
 
+        $validator = Validator::make($input, [
+            'name' => 'required',
+            'pid' => 'required',
+        ], BaseConf::$ValidatorMessages);
+
+        if ($validator->fails()) {
+            return $this->respFailure($validator->errors());
+        }
         
         return $this->respSuccess(DAOProductsNav::set($input));
     }

@@ -39,6 +39,12 @@ class DAOProductsNav
         $data['name'] = Json::encodeDBField($data['name']);
         $data['createTime'] = time();
         $data['effective'] = 1;
-        DB::table(DBTable::$ProductsNav)->insert($data);
+        if(array_key_exists('id',$data)){
+            DB::table(DBTable::$ProductsNav)->where('id',$data['id'])->update($data);
+        }else{
+            DB::table(DBTable::$ProductsNav)->insert($data);
+        }
+        // DB::table(DBTable::$ProductsNav)->insert($data);
+        // DB::table(DBTable::$ProductsNav)->updateOrInsert(['id' => $data=>id], $data);
     }
 }
