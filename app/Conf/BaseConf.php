@@ -22,5 +22,5 @@ class BaseConf
     static $UploadFileType = ['jpg', 'jpeg', 'png',"JPG"];
 
     // 最大上传文件大小
-    static $UploadMaxSize = 5 * 1024 * 1024;
+    static $UploadMaxSize = 20 * 1024 * 1024;
 }
