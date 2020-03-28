@@ -27,6 +27,7 @@ CREATE TABLE `products_item`  (
   `model` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
   `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
   `price` int(10)  NULL DEFAULT 0,
+  `effective` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
   `type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
   `createTime` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
