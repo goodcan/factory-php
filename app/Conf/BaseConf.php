@@ -15,7 +15,8 @@ class BaseConf
     // 文件存放目录
     static $UploadPath = [
         '1' => 'logo',
-        '2' => 'product'
+        '2' => 'product',
+        '3' => 'workshop'
     ];
 
     // 可上传文件类型

@@ -40,8 +40,9 @@ class Image extends Controller
 
         $filename = $file->getClientOriginalName();
         $filename = Md5::encode($filename) . '.' . $fileType;
-
+       
         if (Storage::disk(BaseConf::$UploadPath[$dir])->put($filename, file_get_contents($file))) {
+
             return $this->respSuccess([
                 'url' => '/storage/' . BaseConf::$UploadPath[$dir] . '/' . $filename
             ]);

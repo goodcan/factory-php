@@ -12,4 +12,5 @@ class DBTable
     static $Feedback = 'feedback';
     static $ProductsNav = 'products_nav';
     static $ProductsItem = 'products_item';
+    static $Workshop = 'Workshop';
 }

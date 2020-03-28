@@ -58,6 +58,11 @@ return [
             'root' => public_path('storage/product'),
         ],
 
+        'workshop' => [
+            'driver' => 'local',
+            'root' => public_path('storage/workshop'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
