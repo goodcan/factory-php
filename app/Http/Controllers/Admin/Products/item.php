@@ -29,7 +29,7 @@ class item extends Controller
              // $page = Input::get('page',1);
         // $pageSize = Input::get('pageSize',10);
 
-        return $this->respSuccess(DAOProductsItem::get($input['type'],$input['page'],$input['pageSize']));
+        return $this->respSuccess(DAOProductsItem::get($input['type'],$input['model'],$input['page'],$input['pageSize']));
     }
 
     public function set(){

@@ -11,9 +11,9 @@ use App\Utils\L18n;
 
 class DAOProductsItem
 {
-    static function get($type,$page,$pageSize,$lang = null)
+    static function get($type,$model='',$page,$pageSize,$lang = null)
     {
-        $data = DB::table(DBTable::$ProductsItem)->where('effective',1)->where('type',$type)->paginate($pageSize);
+        $data = DB::table(DBTable::$ProductsItem)->where('effective',1)->where('model','like','%'.$model.'%')->where('type',$type)->paginate($pageSize);
 
         // $page = Input::get('page',1);
         // $pageSize = Input::get('pageSize',10);
