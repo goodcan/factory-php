@@ -10,7 +10,7 @@ use App\Dao\DAOWorkshop;
 class Workshop extends Controller
 {
     public function get(){
-        return $this->respSuccess(DAOWorkshop::get());
+        return $this->respSuccess(DAOWorkshop::get(request()->header('language', 'cn')));
     }
 
 }

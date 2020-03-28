@@ -89,6 +89,6 @@ Route::group(['prefix' => 'v1'], function () {
     });
     Route::post('feedback/submit', 'Main\Feedback@submit');
     Route::get('products/nav/get', 'Main\Products\nav@get');
-    Route::get('products/nav/item', 'Main\Products\item@get');
+    Route::get('products/item/get', 'Main\Products\item@get');
     Route::get('workshop/get', 'Main\Workshop@get');
 });
