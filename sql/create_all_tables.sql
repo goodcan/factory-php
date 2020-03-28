@@ -50,16 +50,17 @@ CREATE TABLE `company_history` (
 -- Table structure for company_news
 -- ----------------------------
 DROP TABLE IF EXISTS `company_news`;
-CREATE TABLE `company_news` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` json NOT NULL,
-  `summary` json NOT NULL,
-  `content` json NOT NULL,
-  `img` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `time` int(10) DEFAULT NULL,
-  `setTime` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `company_news`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `summary` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `img` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
+  `time` int(10) NULL DEFAULT NULL,
+  `readings` int(10) NULL DEFAULT NULL,
+  `setTime` int(10) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 
 -- ----------------------------
@@ -78,7 +79,9 @@ CREATE TABLE `feedback`  (
 ) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 
-
+-- ----------------------------
+-- Table structure for products_nav
+-- ----------------------------
 DROP TABLE IF EXISTS `products_nav`;
 CREATE TABLE `products_nav`  (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -91,7 +94,7 @@ CREATE TABLE `products_nav`  (
 
 
 -- ----------------------------
--- Table structure for feedback
+-- Table structure for products_item
 -- ----------------------------
 DROP TABLE IF EXISTS `products_item`;
 CREATE TABLE `products_item`  (
@@ -105,3 +108,17 @@ CREATE TABLE `products_item`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
+
+-- ----------------------------
+-- Table structure for workshop
+-- ----------------------------
+DROP TABLE IF EXISTS `workshop`;
+CREATE TABLE `workshop`  (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
+  `imgs` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
+  `pid` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
+  `effective` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
+  `createTime` int(10) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;

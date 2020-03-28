@@ -40,6 +40,8 @@ class Company extends Controller
         if (!DAOCompany::checkNewsExists($input['id'])) {
             return $this->respFailure('news is not exists');
         }
+        
+        // DAOCompany::increaseReading($input['id']);
 
         return $this->respSuccess(DAOCompany::getNewsById($input['id'],request()->header('language', 'cn')));
     }

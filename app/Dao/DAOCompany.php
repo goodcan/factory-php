@@ -96,7 +96,7 @@ class DAOCompany
         $page = Input::get('page',1);
         $pageSize = Input::get('pageSize',10);
 
-        $data = DB::table(DBTable::$CompanyNews)->paginate($pageSize);
+        $data = DB::table(DBTable::$CompanyNews)->orderBy('setTime','desc')->paginate($pageSize);
         foreach ($data as $item) {
             $item->title = L18n::decodeDBField($item->title, $lang);
             $item->summary = L18n::decodeDBField($item->summary, $lang);
@@ -108,7 +108,9 @@ class DAOCompany
 
     static function getNewsById($id,$lang = null)
     {
-        $data = DB::table(DBTable::$CompanyNews)->where('id',$id)->get()[0];
+
+        $data = DB::table(DBTable::$CompanyNews)->where('id',$id)->increment('readings');
+        dd($data);
         // dd( $lang);
         $data->title = L18n::decodeDBField($data->title, $lang);
         $data->summary = L18n::decodeDBField($data->summary, $lang);
@@ -147,4 +149,11 @@ class DAOCompany
             ->where('id', $id)
             ->delete();
     }
+
+    // static function increaseReading($id)
+    // {
+    //     DB::table(DBTable::$CompanyNews)
+    //         ->where('id', $id)
+    //         ->increment('readings');
+    // }
 }
