@@ -1,0 +1,9 @@
+INSERT INTO `company_history`(`id`, `content`, `timestamp`) VALUES (3, '{\"cn\": \"申请注册商标\", \"en\": \"Application for registered trademark\"}', 1351699200);
+INSERT INTO `company_history`(`id`, `content`, `timestamp`) VALUES (4, '{\"cn\": \"“大疆创新”商标注册成功\", \"en\": \"\\\"Dajiang innovation\\\" trademark registration success\"}', 1398873600);
+INSERT INTO `company_history`(`id`, `content`, `timestamp`) VALUES (5, '{\"cn\": \"发布精灵Phantom 4\", \"en\": \"Release phantom 4\"}', 1454256000);
+INSERT INTO `company_history`(`id`, `content`, `timestamp`) VALUES (6, '{\"cn\": \"CES 2017 5月在美国纽约召开新品发布会,推出小型的掌上无人机“晓”Spark\", \"en\": \"CES held a new product launch in New York in May 2017, launching a small hand-held UAV \\\"Xiao\\\" spark\"}', 1483200000);
+INSERT INTO `company_history`(`id`, `content`, `timestamp`) VALUES (7, '{\"cn\": \"在美国纽约召开新品发布会，推出小型的掌上无人机“晓”Spark\", \"en\": \"A new product launch conference was held in New York, USA to launch a small hand-held UAV \\\"Xiao\\\" spark\"}', 1504195200);
+INSERT INTO `company_history`(`id`, `content`, `timestamp`) VALUES (8, '{\"cn\": \"微软与大疆创新宣布达成战略合作\", \"en\": \"Microsoft and Dajiang innovation Announce Strategic Cooperation\"}', 1525104000);
+INSERT INTO `company_history`(`id`, `content`, `timestamp`) VALUES (9, '{\"cn\": \"大疆发布“御”Mavic 2系列无人机。\", \"en\": \"Dajiang released the \\\"Royal\\\" mavic 2 series UAV.\"}', 1533052800);
+INSERT INTO `company_history`(`id`, `content`, `timestamp`) VALUES (10, '{\"cn\": \"大疆发布口袋灵眸相机\", \"en\": \"Dajiang releases pocket smart eye camera\"}', 1541001600);
+INSERT INTO `company_history`(`id`, `content`, `timestamp`) VALUES (11, '{\"cn\": \"大疆公司发布“御”Mavic Mini航拍小飞机，可折叠设计、249克机身重量、1200万像素、30分钟的单块电池续航时间等设计\", \"en\": \"Dajiang company released the design of \\\"Royal\\\" mavic Mini Aerial Photography small aircraft, including foldable design, 249g fuselage weight, 12 million pixels, 30 minute single battery life, etc\"}', 1569859200);
