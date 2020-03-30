@@ -74,6 +74,11 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('get', 'Admin\Workshop@get');
     });
     
+    Route::group(['prefix' => 'customer'], function () {
+        Route::post('set', 'Admin\Customer@set');
+        Route::get('del', 'Admin\Customer@del');
+        Route::get('get', 'Admin\Customer@get');
+    });
 
     Route::group(['prefix' => 'image'], function () {
         Route::post('upload', 'Admin\Image@upload');
@@ -91,4 +96,5 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('products/nav/get', 'Main\Products\nav@get');
     Route::get('products/item/get', 'Main\Products\item@get');
     Route::get('workshop/get', 'Main\Workshop@get');
+    Route::get('customer/get', 'Main\Customer@get');
 });
