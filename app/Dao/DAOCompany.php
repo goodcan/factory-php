@@ -109,9 +109,8 @@ class DAOCompany
     static function getNewsById($id,$lang = null)
     {
 
-        $data = DB::table(DBTable::$CompanyNews)->where('id',$id)->increment('readings');
-        dd($data);
-        // dd( $lang);
+         DB::table(DBTable::$CompanyNews)->where('id',$id)->increment('readings');
+         $data = DB::table(DBTable::$CompanyNews)->where('id',$id)->first();
         $data->title = L18n::decodeDBField($data->title, $lang);
         $data->summary = L18n::decodeDBField($data->summary, $lang);
         $data->content = L18n::decodeDBField($data->content, $lang);

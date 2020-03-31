@@ -58,7 +58,7 @@ CREATE TABLE `company_news`  (
   `summary` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `img` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
   `time` int(10) NULL DEFAULT NULL,
-  `readings` int(10) NULL DEFAULT NULL,
+  `readings` int(10) NULL DEFAULT 0,
   `setTime` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
