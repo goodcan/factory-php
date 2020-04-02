@@ -117,7 +117,7 @@ DROP TABLE IF EXISTS `workshop`;
 CREATE TABLE `workshop`  (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
-  `imgs` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
+  `imgs` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
   `pid` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
   `effective` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
   `createTime` int(10) NULL DEFAULT NULL,

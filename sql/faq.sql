@@ -20,12 +20,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 -- Table structure for workshop
 -- ----------------------------
-DROP TABLE IF EXISTS `workshop`;
-CREATE TABLE `workshop`  (
+DROP TABLE IF EXISTS `faq`;
+CREATE TABLE `faq`  (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
-  `imgs` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
-  `pid` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
+  `question` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
+  `answer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
   `effective` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
   `createTime` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
