@@ -139,3 +139,17 @@ CREATE TABLE `customer`  (
   `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+
+-- ----------------------------
+-- Table structure for faq
+-- ----------------------------
+DROP TABLE IF EXISTS `faq`;
+CREATE TABLE `faq`  (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `question` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
+  `answer` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `effective` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
+  `createTime` int(10) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;

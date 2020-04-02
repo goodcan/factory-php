@@ -18,13 +18,13 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for workshop
+-- Table structure for faq
 -- ----------------------------
 DROP TABLE IF EXISTS `faq`;
 CREATE TABLE `faq`  (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `question` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
-  `answer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
+  `answer` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `effective` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '',
   `createTime` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE

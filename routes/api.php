@@ -105,3 +105,28 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('customer/get', 'Main\Customer@get');
     Route::get('faq/get', 'Main\Faq@get');
 });
+
+
+Route::post('user/login', function(){
+    $password = Input::get('password');
+  
+    if( $password === 'pengxiaoji' ){
+      return ['code'=>20000,'data'=>['token'=>"admin-token"]] ;
+    }else{
+      return ['code'=>0,'data'=>['message'=>"password error"]] ;
+    }
+  });
+ 
+ 
+  Route::get('user/info', function(){
+   return ['code'=>20000,'data'=>[
+         'roles'=> ['admin'],
+     'introduction'=> 'I am a super administrator',
+     'avatar'=> 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+     'name'=> 'Super Admin'
+   ]] ;
+  });
+ Route::POST('user/logout', function(){
+ 
+   return ['code'=>20000,'data'=>'success'] ;
+  });
