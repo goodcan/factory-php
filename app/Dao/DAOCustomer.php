@@ -22,6 +22,17 @@ class DAOCustomer
         return $data;
     }
 
+    static function v1get($lang = null)
+    {
+        $data = DB::table(DBTable::$Customer)->where('effective',1)->get();
+
+        foreach ($data as $item) {
+            $item->name = L18n::decodeDBField($item->name, $lang);
+        }
+
+        return $data;
+    }
+
     static function del($id)
     {
         return DB::table(DBTable::$Customer)->where('id',$id)->update(['effective'=>0]);

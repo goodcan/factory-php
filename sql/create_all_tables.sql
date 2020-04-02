@@ -21,19 +21,20 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- Table structure for company
 -- ----------------------------
 DROP TABLE IF EXISTS `company`;
-CREATE TABLE `company` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `phone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `fax` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `mobilePhone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `concatUser` json DEFAULT NULL,
-  `email` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `address` json DEFAULT NULL,
-  `logo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `briefIntroduction` json DEFAULT NULL,
-  `latLng` json DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `company`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `phone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
+  `fax` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
+  `mobilePhone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
+  `concatUser` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
+  `email` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
+  `address` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
+  `logo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
+  `briefIntroduction` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
+  `latLng` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
 
 -- ----------------------------
 -- Table structure for company_history
@@ -57,7 +58,7 @@ CREATE TABLE `company_news`  (
   `summary` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `img` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
   `time` int(10) NULL DEFAULT NULL,
-  `readings` int(10) NULL DEFAULT NULL,
+  `readings` int(10) NULL DEFAULT 0,
   `setTime` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;

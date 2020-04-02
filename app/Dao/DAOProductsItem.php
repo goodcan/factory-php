@@ -11,10 +11,15 @@ use App\Utils\L18n;
 
 class DAOProductsItem
 {
-    static function get($type,$model='',$page,$pageSize,$lang = null)
+    static function get($type, $model = '', $page, $pageSize, $lang = null)
     {
-        $data = DB::table(DBTable::$ProductsItem)->where('effective',1)->where('model','like','%'.$model.'%')->where('type',$type)->paginate($pageSize);
 
+        $instance = DB::table(DBTable::$ProductsItem)->where('effective', 1)->where('model', 'like', '%' . $model . '%');
+        if ($type == 10000) {
+            $data  = $instance->paginate($pageSize);
+        } else {
+            $data  = $instance->where('type', $type)->paginate($pageSize);
+        }
         // $page = Input::get('page',1);
         // $pageSize = Input::get('pageSize',10);
 
@@ -27,7 +32,7 @@ class DAOProductsItem
 
     static function del($id)
     {
-        return DB::table(DBTable::$ProductsItem)->where('id',$id)->update(['effective'=>0]);
+        return DB::table(DBTable::$ProductsItem)->where('id', $id)->update(['effective' => 0]);
     }
 
     static function checkExists($id)
@@ -42,9 +47,9 @@ class DAOProductsItem
         $data['name'] = Json::encodeDBField($data['name']);
         $data['createTime'] = time();
         $data['effective'] = 1;
-        if(array_key_exists('id',$data)){
-            DB::table(DBTable::$ProductsItem)->where('id',$data['id'])->update($data);
-        }else{
+        if (array_key_exists('id', $data)) {
+            DB::table(DBTable::$ProductsItem)->where('id', $data['id'])->update($data);
+        } else {
             DB::table(DBTable::$ProductsItem)->insert($data);
         }
         // DB::table(DBTable::$ProductsItem)->insert($data);
