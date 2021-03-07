@@ -15,6 +15,7 @@ class DAOCompany
     static function baseInfo()
     {
         return [
+            'companyName' => '',
             'phone' => '',
             'fax' => '',
             'mobilePhone' => '',
@@ -26,7 +27,8 @@ class DAOCompany
             'latLng' => [
                 'lat' => 0,
                 'lng' => 0
-            ]
+            ],
+            'mapClick' => ''
         ];
     }
 
@@ -37,6 +39,7 @@ class DAOCompany
         if (is_null($query)) {
             return $info;
         }
+        $info['companyName'] =  L18n::decodeDBField($query->companyName, $lang);
         $info['phone'] = $query->phone;
         $info['fax'] = $query->fax;
         $info['mobilePhone'] = $query->mobilePhone;
@@ -48,15 +51,19 @@ class DAOCompany
         if ($query->latLng !== null) {
             $info['latLng'] = Json::decodeDBField($query->latLng);
         }
+        $info['mapClick'] =  L18n::decodeDBField($query->mapClick, $lang);
+
         return $info;
     }
 
     static function updateInfo($data)
     {
+        $data['companyName'] = Json::encodeDBField($data['companyName']);
         $data['concatUser'] = Json::encodeDBField($data['concatUser']);
         $data['address'] = Json::encodeDBField($data['address']);
         $data['briefIntroduction'] = Json::encodeDBField($data['briefIntroduction']);
         $data['latLng'] = Json::encodeDBField($data['latLng']);
+        $data['mapClick'] = Json::encodeDBField($data['mapClick']);
         $data['id'] = 1;
         DB::table(DBTable::$Company)
             ->updateOrInsert(['id' => $data['id']], $data);
@@ -114,7 +121,7 @@ class DAOCompany
         $data->title = L18n::decodeDBField($data->title, $lang);
         $data->summary = L18n::decodeDBField($data->summary, $lang);
         $data->content = L18n::decodeDBField($data->content, $lang);
-     
+
         return $data;
     }
 
@@ -131,7 +138,7 @@ class DAOCompany
         $data['summary'] = Json::encodeDBField($data['summary']);
         $data['content'] = Json::encodeDBField($data['content']);
         $data['setTime'] = time();
-      
+
         if (array_key_exists('id', $data) && $data['id'] !== 0) {
             DB::table(DBTable::$CompanyNews)
                 ->where('id', $data['id'])
